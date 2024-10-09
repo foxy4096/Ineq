@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Prefabs/LevelGenerator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Background.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=5]
+
+[sub_resource type="InputEventAction" id=1]
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 10, -949 )
+scale = Vector2( 83.0865, 22.0426 )
+texture = ExtResource( 3 )
+
+[node name="LevelGenerator" parent="." instance=ExtResource( 2 )]
+unique_name_in_owner = true
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_tile_origin = 1
+
+[node name="players_group" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="back button" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -52.0
+margin_top = 4.0
+margin_right = -6.0
+margin_bottom = 24.0
+shortcut = SubResource( 2 )
+text = "BACK"
+
+[connection signal="pressed" from="CanvasLayer/back button" to="." method="_on_back_button_pressed"]

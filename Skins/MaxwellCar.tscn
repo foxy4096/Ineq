@@ -1,0 +1,32 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-1.png" type="Texture" id=2]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-10.png" type="Texture" id=3]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-3.png" type="Texture" id=4]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-9.png" type="Texture" id=5]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-11.png" type="Texture" id=6]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-7.png" type="Texture" id=7]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-8.png" type="Texture" id=8]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-12.png" type="Texture" id=9]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-13.png" type="Texture" id=10]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-6.png" type="Texture" id=11]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-4.png" type="Texture" id=12]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-2.png" type="Texture" id=13]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-0.png" type="Texture" id=14]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-5.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 2 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="MaxwellCar" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+frame = 3
+playing = true

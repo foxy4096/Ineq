@@ -1,0 +1,139 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/MajorMonoDisplay-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Background.png" type="Texture" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Skins/Memes/obama-prism/obama-prism-10.png" type="Texture" id=6]
+[ext_resource path="res://Skins/Memes/maxwell-cat/maxwell-cat-3.png" type="Texture" id=7]
+[ext_resource path="res://Skins/Idle-0.png" type="Texture" id=8]
+[ext_resource path="res://Assets/FontStyle.tres" type="DynamicFont" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 2 )
+skins = [ "res://Skins/ObamaPrism.tscn", "res://Skins/MaxwellCar.tscn", "res://Skins/GodotSkin.tscn", "res://Skins/Ja.tscn" ]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 480, 336 )
+scale = Vector2( 4.77891, 3.87083 )
+texture = ExtResource( 4 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="Label" type="Label" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -504.0
+margin_top = -436.0
+margin_right = 520.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 2 )
+text = "INEQ"
+align = 1
+valign = 1
+
+[node name="SkinSelectorLabel" type="Label" parent="Control/Panel"]
+margin_right = 160.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+text = "SELECT SKIN"
+
+[node name="SkinSelector" type="ItemList" parent="Control/Panel"]
+anchor_bottom = 1.0
+margin_top = 38.0
+margin_right = 191.0
+items = [ "Obama Prism", ExtResource( 6 ), false, "Maxwell Car", ExtResource( 7 ), false, "Godot Icon", ExtResource( 5 ), false, "Ja", ExtResource( 8 ), false ]
+max_text_lines = 117
+auto_height = true
+max_columns = 32
+same_column_width = true
+fixed_column_width = 149
+fixed_icon_size = Vector2( 30, 30 )
+
+[node name="SeedInput" type="LineEdit" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.264
+anchor_right = 0.5
+anchor_bottom = 0.264
+margin_left = -224.0
+margin_top = 137.848
+margin_right = 228.0
+margin_bottom = 182.848
+rect_rotation = -0.0314828
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "123456789"
+placeholder_text = "Seed Input"
+
+[node name="NameInput" type="LineEdit" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.371
+anchor_right = 0.5
+anchor_bottom = 0.371
+margin_left = -172.0
+margin_top = 137.4
+margin_right = 228.0
+margin_bottom = 182.4
+rect_rotation = -0.0314828
+custom_fonts/font = ExtResource( 9 )
+text = "Player"
+placeholder_text = "Player Name"
+
+[node name="NameColor" type="ColorPickerButton" parent="Control/Panel/NameInput"]
+anchor_bottom = 1.0
+margin_left = -56.0
+custom_constants/hseparation = 0
+color = Color( 1, 1, 1, 1 )
+
+[node name="exit button" type="Button" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -224.0
+margin_top = -136.0
+margin_right = 230.0
+margin_bottom = -96.0
+text = "EXIT"
+
+[node name="play button" type="Button" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -224.0
+margin_top = 116.0
+margin_right = 230.0
+margin_bottom = 156.0
+text = "Play"
+
+[connection signal="pressed" from="Control/Panel/exit button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Control/Panel/play button" to="." method="_on_play_button_pressed"]

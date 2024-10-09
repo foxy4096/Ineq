@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Camera2DZoomControl.gd" type="Script" id=1]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2( -3.05176e-05, 0 )
+rotating = true
+current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+script = ExtResource( 1 )

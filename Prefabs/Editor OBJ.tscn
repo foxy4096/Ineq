@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/platform-tile.png-6514b833f6a99b8e5719fa1a7de96cab.stex"
+
+[node name="Editor OBJ" type="Node2D"]
+
+[node name="Platform-tile" type="Sprite" parent="."]
+scale = Vector2( 10, 10 )
+texture = SubResource( 1 )
